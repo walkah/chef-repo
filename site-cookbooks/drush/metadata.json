@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "php": ">= 0.0.0"
+  },
+  "name": "drush",
+  "maintainer_email": "mark.sonnabaum@acquia.com",
+  "attributes": {
+  },
+  "license": "Apache 2.0",
+  "suggestions": {
+  },
+  "platforms": {
+    "debian": ">= 0.0.0",
+    "arch": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0"
+  },
+  "maintainer": "Mark Sonnabaum",
+  "long_description": "",
+  "version": "0.9.1",
+  "recommendations": {
+  },
+  "recipes": {
+    "drush": "Installs drush"
+  },
+  "groupings": {
+  },
+  "conflicting": {
+  },
+  "replacing": {
+  },
+  "description": "Installs drush",
+  "providing": {
+  }
+}
