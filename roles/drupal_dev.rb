@@ -1,6 +1,6 @@
 name "drupal_dev"
 description "Development environment for Drupal"
 run_list(
-  "role[drupal",
+  "role[drupal]",
   "recipe[drupal::dev]"
 )
