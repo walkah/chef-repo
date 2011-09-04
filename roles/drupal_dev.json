@@ -1,9 +1,0 @@
-{ 
-  "name": "drupal_dev",
-  "description": "Dev environment for Drupal",
-  "json_class": "Chef::Role",
-  "run_list": [
-    "role[drupal]",
-    "recipe[drupal::dev]"
-  ]
-}
