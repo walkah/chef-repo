@@ -3,6 +3,7 @@ require_recipe "drush"
 require_recipe "drush::make"
 
 package "curl"
+package "php5-gmp"
 # TODO : curlrc here.
 
 php_pear "uploadprogress" do
