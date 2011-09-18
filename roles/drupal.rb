@@ -4,5 +4,8 @@ run_list(
   "role[lamp]",
   "recipe[php::module_curl]",
   "recipe[php::module_gd]",
+  "recipe[git]",
+  "recipe[drush]",
+  "recipe[drush::make]",
   "recipe[drupal]"
 )
