@@ -3,12 +3,10 @@ Vagrant::Config.run do |config|
   config.vm.box = "lucid32"
   config.vm.box_url = "http://files.vagrantup.com/lucid32.box"
 
-  config.vm.network "33.33.33.10"
+  config.vm.network :hostonly, "33.33.33.10"
   config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
-  config.vm.forward_port "mysql", 3306, 3306
-  config.vm.customize do |vm|
-    vm.memory_size = 1024
-  end
+  config.vm.forward_port 3306, 3306
+  config.vm.customize ["modifyvm", :id, "--memory", "1024"]
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
