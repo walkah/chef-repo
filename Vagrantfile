@@ -1,3 +1,4 @@
+# -*- mode: ruby -*-
 Vagrant::Config.run do |config|
   # basebox
   config.vm.box = "lucid32"
