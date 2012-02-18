@@ -2,18 +2,44 @@ GEM
   remote: http://rubygems.org/
   specs:
     archive-tar-minitar (0.5.2)
+    bunny (0.7.9)
+    chef (0.8.10)
+      bunny (>= 0.6.0)
+      erubis
+      extlib
+      json
+      mixlib-authentication (>= 1.1.0)
+      mixlib-cli (>= 1.1.0)
+      mixlib-config (>= 1.1.0)
+      mixlib-log (>= 1.1.0)
+      moneta
+      ohai (>= 0.5.0)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     erubis (2.7.0)
+    extlib (0.9.15)
     ffi (1.0.11)
     i18n (0.6.0)
     json (1.5.4)
     librarian (0.0.4)
       thor
     log4r (1.1.10)
+    mixlib-authentication (1.1.4)
+      mixlib-log
+    mixlib-cli (1.2.2)
+    mixlib-config (1.1.2)
+    mixlib-log (1.3.0)
+    moneta (0.6.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.2.2)
+    ohai (0.6.10)
+      mixlib-cli
+      mixlib-config
+      mixlib-log
+      systemu (~> 2.2.0)
+      yajl-ruby
+    systemu (2.2.0)
     thor (0.14.6)
     vagrant (0.9.7)
       archive-tar-minitar (= 0.5.2)
@@ -24,10 +50,12 @@ GEM
       log4r (~> 1.1.9)
       net-scp (~> 1.0.4)
       net-ssh (~> 2.2.2)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  chef
   librarian
   vagrant (> 0.9.0)
