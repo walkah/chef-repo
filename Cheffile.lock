@@ -25,11 +25,28 @@ SITE
     xml (1.0.2)
     yum (0.5.2)
 
+GIT
+  remote: https://github.com/msonnabaum/chef-drush.git
+  ref: master
+  sha: 80ae77cd72b8073c7fc3b5f2c943d7c0f3603e66
+  specs:
+    drush (0.9.2)
+      php (>= 0.0.0)
+
+GIT
+  remote: https://github.com/msonnabaum/chef-xhprof.git
+  ref: master
+  sha: c709407fe970abe0c9f8f6728e82006f49baad14
+  specs:
+    xhprof (0.9.0)
+      php (>= 0.0.0)
+
 DEPENDENCIES
   apache2 (>= 0)
   apt (>= 0)
   build-essential (>= 0)
   chef-client (>= 0)
+  drush (>= 0)
   git (>= 0)
   mysql (>= 0)
   openssl (>= 0)
@@ -38,4 +55,5 @@ DEPENDENCIES
   postgresql (>= 0)
   python (>= 0)
   varnish (>= 0)
+  xhprof (>= 0)
 
