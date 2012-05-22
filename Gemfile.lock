@@ -14,7 +14,7 @@ GEM
       mixlib-log (>= 1.1.0)
       moneta
       ohai (>= 0.5.0)
-    childprocess (0.3.1)
+    childprocess (0.3.2)
       ffi (~> 1.0.6)
     erubis (2.7.0)
     extlib (0.9.15)
@@ -41,7 +41,7 @@ GEM
       yajl-ruby
     systemu (2.2.0)
     thor (0.14.6)
-    vagrant (0.9.7)
+    vagrant (1.0.2)
       archive-tar-minitar (= 0.5.2)
       childprocess (~> 0.3.1)
       erubis (~> 2.7.0)
@@ -58,4 +58,4 @@ PLATFORMS
 DEPENDENCIES
   chef
   librarian
-  vagrant (> 0.9.0)
+  vagrant (> 1.0.0)
