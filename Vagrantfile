@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 Vagrant::Config.run do |config|
   # basebox
-  config.vm.box = "lucid64"
-  config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://dl.dropbox.com/u/6091/precise64.box"
 
   config.vm.network :hostonly, "33.33.33.10"
   config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
@@ -22,7 +22,11 @@ Vagrant::Config.run do |config|
                          :bind_address => '0.0.0.0',
                        },
                        :drupal => {
-                         :hosts => ["d7.dev"]
+                         :hosts => ["d7.dev", "d8.dev", "xhprof.dev"]
+                       },
+                       :drush => {
+                         :install_method => 'pear',
+                         :version => '5.2.0',
                        }
 		      
                      })
