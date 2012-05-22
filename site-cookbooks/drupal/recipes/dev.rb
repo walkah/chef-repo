@@ -8,6 +8,11 @@ php_pear "xdebug" do
   action :install
 end
 
+php_pear "xhprof" do
+  preferred_state "beta"
+  action :install
+end
+
 template "/etc/php5/conf.d/xdebug.ini" do
   source "xdebug.ini.erb"
   owner "root"
