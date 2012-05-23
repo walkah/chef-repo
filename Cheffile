@@ -21,6 +21,3 @@ cookbook 'drush',
   :git => 'https://github.com/msonnabaum/chef-drush.git',
   :ref => 'master'
 
-cookbook 'xhprof',
-  :git => 'https://github.com/msonnabaum/chef-xhprof.git',
-  :ref => 'master'
