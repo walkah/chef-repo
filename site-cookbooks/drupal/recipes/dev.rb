@@ -1,5 +1,4 @@
 require_recipe "build-essential"
-require_recipe "drupal"
 
 package 'git-core' # for dev checkouts
 package 'squid3' # for speeding up drush_make
@@ -18,5 +17,4 @@ template "/etc/php5/conf.d/xdebug.ini" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, resources("service[apache2]"), :delayed
 end
