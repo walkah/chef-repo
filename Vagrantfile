@@ -29,7 +29,7 @@ Vagrant::Config.run do |config|
                        },
                        :drush => {
                          :install_method => 'pear',
-                         :version => '5.2.0',
+                         :version => '5.7.0',
                        }
 		      
                      })
