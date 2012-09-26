@@ -25,7 +25,7 @@ Vagrant::Config.run do |config|
                          :bind_address => '0.0.0.0',
                        },
                        :drupal => {
-                         :hosts => ["d7.dev", "d8.dev", "xhprof.dev"]
+                         :hosts => ["d7.vm", "d8.vm"]
                        },
                        :drush => {
                          :install_method => 'pear',
