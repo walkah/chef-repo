@@ -2,8 +2,11 @@
 Vagrant::Config.run do |config|
   # basebox
   config.vm.box = "precise64"
-  config.vm.box_url = "http://dl.dropbox.com/u/6091/precise64.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
+  #config.vm.box = "lucid64"
+  #config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
+  
   config.vm.network :hostonly, "33.33.33.10"
   config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
   config.vm.forward_port 3306, 3306
