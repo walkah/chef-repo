@@ -1,6 +1,5 @@
 .rake_test_cache
 .chef
 .vagrant
-cookbooks
 public
 tmp
