@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     archive-tar-minitar (0.5.2)
+    builder (3.1.4)
     bunny (0.7.9)
     chef (10.16.4)
       bunny (>= 0.6.0, < 0.8.0)
@@ -24,11 +25,28 @@ GEM
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     erubis (2.7.0)
+    excon (0.16.10)
     ffi (1.2.0)
+    fog (1.8.0)
+      builder
+      excon (~> 0.14)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     highline (1.6.15)
     i18n (0.6.1)
     ipaddress (0.8.0)
     json (1.5.4)
+    knife-ec2 (0.6.2)
+      chef (>= 0.10.10)
+      fog (~> 1.6)
+    knife-linode (0.2.0)
+      fog (~> 1.0)
     librarian (0.0.26)
       archive-tar-minitar (>= 0.5.2)
       chef (>= 0.10)
@@ -43,6 +61,7 @@ GEM
     mixlib-log (1.4.1)
     mixlib-shellout (1.1.0)
     moneta (0.6.0)
+    multi_json (1.5.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.2.2)
@@ -51,6 +70,7 @@ GEM
     net-ssh-multi (1.1)
       net-ssh (>= 2.1.4)
       net-ssh-gateway (>= 0.99.0)
+    nokogiri (1.5.6)
     ohai (6.14.0)
       ipaddress
       mixlib-cli
@@ -61,6 +81,7 @@ GEM
     polyglot (0.3.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-hmac (0.4.0)
     systemu (2.5.2)
     thor (0.16.0)
     treetop (1.4.12)
@@ -83,5 +104,7 @@ PLATFORMS
 
 DEPENDENCIES
   chef
+  knife-ec2
+  knife-linode
   librarian
   vagrant (> 1.0.0)
