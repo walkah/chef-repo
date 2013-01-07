@@ -1,37 +1,44 @@
 # -*- mode: ruby -*-
 Vagrant::Config.run do |config|
-  # basebox
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  current_dir = File.dirname(__FILE__)
+  config_file = "#{current_dir}/config/vagrant.yml"
 
-  #config.vm.box = "lucid64"
-  #config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
-  
+  if File.exists?(config_file)
+    conf = YAML.load_file(config_file)
+  else
+    p "No config file found."
+    exit
+  end
+
+  # basebox
+  config.vm.box = conf['box']
+  config.vm.box_url = conf['box_url']
+
+  # network
   config.vm.network :hostonly, "33.33.33.10"
-  config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
   config.vm.forward_port 3306, 3306
-  config.vm.customize ["modifyvm", :id, "--memory", "1024"]
+
+  # customizations 
+  config.vm.customize ["modifyvm", :id, "--memory", conf['memory']]
+  config.vm.customize ["modifyvm", :id, "--cpus", conf['cpus']]
+
+  config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "drupal_dev"
+    chef.add_recipe ""
+
+    chef.json = JSON.parse(File.read("#{current_dir}/config/node.json"))
 
     chef.json.merge!({
-                       :doc_root => '/vagrant/public',
                        :mysql => {
                          :server_root_password => "root",
+                         :server_debian_password => "root",
+                         :server_repl_password => "root",
                          :allow_remote_root => true,
                          :bind_address => '0.0.0.0',
                        },
-                       :drupal => {
-                         :hosts => ["d7.vm", "d8.vm"]
-                       },
-                       :drush => {
-                         :install_method => 'pear',
-                         :version => '5.7.0',
-                       }
-		      
                      })
   end
 end

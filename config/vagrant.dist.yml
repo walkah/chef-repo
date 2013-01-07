@@ -1,0 +1,4 @@
+box: "precise32"
+box_url: "http://files.vagrantup.com/precise32.box"
+memory: "1024"
+cpus: "1"

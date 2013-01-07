@@ -14,7 +14,7 @@ if node[:drupal].has_key(:hosts)
     web_app site do
       server_name site
       server_aliases ["*.#{site}"]
-      docroot "#{node[:doc_root]}/#{site}"
+      docroot "#{node[:drupal][:doc_root]}/#{site}"
     end
   end
 end
