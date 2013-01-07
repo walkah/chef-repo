@@ -1,10 +1,9 @@
 # install drupal requirements and setup site vhosts
-require_recipe "drush"
-require_recipe "drush::make"
+include_recipe "build-essential"
+include_recipe "drush"
 
 package "curl"
 package "php5-gmp"
-# TODO : curlrc here.
 
 php_pear "uploadprogress" do
   action :install

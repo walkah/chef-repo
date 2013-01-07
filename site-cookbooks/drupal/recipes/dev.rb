@@ -1,4 +1,4 @@
-require_recipe "build-essential"
+include_recipe "build-essential"
 
 package 'git-core' # for dev checkouts
 package 'squid3' # for speeding up drush_make
