@@ -8,6 +8,7 @@ cookbook 'chef-client'
 cookbook "apache2"
 cookbook "apt"
 cookbook "build-essential"
+cookbook "chef-client"
 cookbook "git"
 cookbook "mysql"
 cookbook "nginx"
@@ -22,3 +23,6 @@ cookbook 'drush',
   :git => 'https://github.com/msonnabaum/chef-drush.git',
   :ref => 'master'
 
+cookbook 'openphoto',
+  :git => 'https://github.com/walkah/chef-openphoto.git',
+  :ref => 'master'
