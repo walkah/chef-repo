@@ -3,6 +3,8 @@ Vagrant::Config.run do |config|
   current_dir = File.dirname(__FILE__)
   config_file = "#{current_dir}/config/vagrant.yml"
 
+  node_json = ENV['node'] ||= "#{current_dir}/config/node.json"
+
   if File.exists?(config_file)
     conf = YAML.load_file(config_file)
   else
@@ -29,7 +31,7 @@ Vagrant::Config.run do |config|
     chef.roles_path = "roles"
     chef.add_recipe ""
 
-    chef.json = JSON.parse(File.read("#{current_dir}/config/node.json"))
+    chef.json = JSON.parse(File.read(node_json))
 
     chef.json.merge!({
                        :mysql => {
