@@ -17,6 +17,7 @@ cookbook "php"
 cookbook "postfix"
 cookbook "postgresql"
 cookbook "python"
+cookbook "wordpress"
 cookbook "varnish"
 
 cookbook 'drush',
