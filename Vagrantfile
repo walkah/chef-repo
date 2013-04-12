@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 require 'yaml'
 
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   current_dir = File.dirname(__FILE__)
   config_file = "#{current_dir}/config/vagrant.yml"
 
@@ -19,14 +19,16 @@ Vagrant::Config.run do |config|
   config.vm.box_url = conf['box_url']
 
   # network
-  config.vm.network :hostonly, "33.33.33.10"
-  config.vm.forward_port 3306, 3306
+  config.vm.network :private_network, ip: "33.33.33.10"
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
 
   # customizations 
-  config.vm.customize ["modifyvm", :id, "--memory", conf['memory']]
-  config.vm.customize ["modifyvm", :id, "--cpus", conf['cpus']]
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", conf['memory']]
+    vb.customize ["modifyvm", :id, "--cpus", conf['cpus']]
+  end
 
-  config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
+  #config.vm.share_folder "v-data", "/vagrant", ".", :nfs => true
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
