@@ -1,4 +1,6 @@
 # -*- mode: ruby -*-
+require 'yaml'
+
 Vagrant::Config.run do |config|
   current_dir = File.dirname(__FILE__)
   config_file = "#{current_dir}/config/vagrant.yml"
