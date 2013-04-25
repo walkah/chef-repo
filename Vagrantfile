@@ -33,10 +33,12 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
     chef.roles_path = "roles"
-    chef.add_recipe ""
 
-    chef.json = JSON.parse(File.read(node_json))
+    dna = JSON.parse(File.read(node_json))
 
+    chef.run_list = dna["run_list"]
+
+    chef.json.merge!(dna)
     chef.json.merge!({
                        :mysql => {
                          :server_root_password => "root",
